@@ -1,0 +1,23 @@
+# Build output
+*.class
+out/
+bin/
+build/
+dist/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+nbproject/private/
+.settings/
+.project
+.classpath
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Archives: khong commit file nen; de bai va mau nop bai da giai nen trong de_bai/, mau_nop_bai/
+*.zip
+*.rar
