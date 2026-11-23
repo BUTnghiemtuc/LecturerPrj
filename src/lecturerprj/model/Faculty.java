@@ -14,7 +14,7 @@ import java.math.BigDecimal;
  * đối tượng thành dòng file ({@link #toString()}). Việc kiểm tra ràng buộc (không rỗng, không trùng,
  * ngân sách lớn hơn 0) do {@code FacultyList} và {@code Inputter} đảm nhận trước khi gọi setter.
  *
- * @author TV2 - (điền họ tên)
+ * @author TV2 - Pham Van Quyet
  */
 public class Faculty {
 

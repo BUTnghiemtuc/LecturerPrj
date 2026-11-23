@@ -18,7 +18,7 @@ LecturerPrj/
 │       ├── list/
 │       │   ├── FacultyList.java      ← TV2
 │       │   ├── LecturerList.java     ← TV3 + TV4 (xem mục 9)
-│       │   └── AdvancedFeatures.java ← TV6 (chức năng nâng cao 12, 13)
+│       │   └── AdvancedFeatures.java ← TV6 (chức năng nâng cao 12, 13, 14)
 │       └── ui/
 │           ├── Menu.java             ← TV5
 │           └── Inputter.java         ← TV4
@@ -43,13 +43,13 @@ LecturerPrj/
 
 ## 2. Đặt tên
 
-| Loại | Quy tắc | Ví dụ |
-|---|---|---|
-| Class, interface, enum | PascalCase, danh từ tiếng Anh | `FacultyList`, `Inputter` |
-| Method | camelCase, bắt đầu bằng động từ | `loadFromFile`, `searchID` |
-| Biến, thuộc tính, tham số | camelCase, có nghĩa | `teachingHours`, `keyword` |
-| Hằng số | `UPPER_SNAKE_CASE`, `static final` | `FACULTY_FILE = "facultys.txt"` |
-| Package | chữ thường | `lecturerprj.model` |
+| Loại                         | Quy tắc                               | Ví dụ                           |
+| ----------------------------- | -------------------------------------- | --------------------------------- |
+| Class, interface, enum        | PascalCase, danh từ tiếng Anh        | `FacultyList`, `Inputter`     |
+| Method                        | camelCase, bắt đầu bằng động từ | `loadFromFile`, `searchID`    |
+| Biến, thuộc tính, tham số | camelCase, có nghĩa                  | `teachingHours`, `keyword`    |
+| Hằng số                     | `UPPER_SNAKE_CASE`, `static final` | `FACULTY_FILE = "facultys.txt"` |
+| Package                       | chữ thường                          | `lecturerprj.model`             |
 
 - **Tên class, thuộc tính, method trong UML của đề phải giữ NGUYÊN VĂN**, kể cả tên không theo chuẩn: `int_getChoice`, `ref_getChoice`, `listFacultys`, `searchID`, `screenString`, `printBasedFacultyName`. Giảng viên chấm đối chiếu với UML.
 - Không đặt tên `a`, `b`, `temp1`, `x2`. Biến đếm vòng lặp `i`, `j` thì được.
@@ -112,6 +112,7 @@ Comment trong code: tiếng Việt có dấu được, ngắn gọn, giải thí
 ## 5. Định dạng file dữ liệu
 
 Quy tắc chung cho cả 2 file:
+
 - Mỗi dòng 1 bản ghi, **không có dòng tiêu đề**.
 - Các trường cách nhau bằng **dấu phẩy + 1 dấu cách** `", "`.
 - Khi đọc: `split(",")` rồi `trim()` từng phần, bỏ qua dòng trống.
@@ -123,6 +124,7 @@ Quy tắc chung cho cả 2 file:
 ```
 facultyID, facultyName, office, researchBudget
 ```
+
 ```
 F01, Computer Science, A301, 600000000
 F02, Business, B201, 350000000
@@ -139,6 +141,7 @@ F03, Languages, C102, 200000000
 ```
 lecturerID, facultyID, fullName, academicRank, teachingHours
 ```
+
 ```
 L01, F01, Nguyen An, Senior Lecturer, 180
 L02, F02, Tran Binh, Lecturer, 210
@@ -150,25 +153,26 @@ L03, F01, Le Chi, Associate Professor, 120
 
 ### 5.3. Xử lý lỗi khi đọc file
 
-| Tình huống | Cách xử lý |
-|---|---|
-| Không tìm thấy file | In cảnh báo, bắt đầu với danh sách rỗng, `loadFromFile` trả về `false`. Chương trình vẫn chạy tiếp. |
-| Dòng thiếu/thừa trường | **Bỏ qua dòng đó**, in lỗi kèm số dòng, đọc tiếp các dòng sau. |
-| Số sai định dạng hoặc vi phạm ràng buộc | Như trên. |
-| Mã trùng với dòng trước | Như trên. |
-| `lecturers.txt` tham chiếu mã khoa không tồn tại | Như trên. |
+| Tình huống                                            | Cách xử lý                                                                                                           |
+| ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Không tìm thấy file                                  | In cảnh báo, bắt đầu với danh sách rỗng, `loadFromFile` trả về `false`. Chương trình vẫn chạy tiếp. |
+| Dòng thiếu/thừa trường                             | **Bỏ qua dòng đó**, in lỗi kèm số dòng, đọc tiếp các dòng sau.                                       |
+| Số sai định dạng hoặc vi phạm ràng buộc         | Như trên.                                                                                                             |
+| Mã trùng với dòng trước                           | Như trên.                                                                                                             |
+| `lecturers.txt` tham chiếu mã khoa không tồn tại | Như trên.                                                                                                             |
 
 Mẫu thông báo:
+
 ```
 [lecturers.txt] Line 4: faculty 'F09' does not exist -> skipped.
 ```
 
 ### 5.4. `toString()` và `screenString()`
 
-| Method | Dùng để | Định dạng |
-|---|---|---|
-| `toString()` | **Ghi file** | Đúng 1 dòng như mục 5.1 / 5.2 |
-| `screenString()` | **Hiển thị** lên màn hình | Dạng bảng theo mục 6 |
+| Method             | Dùng để                           | Định dạng                       |
+| ------------------ | ------------------------------------ | ---------------------------------- |
+| `toString()`     | **Ghi file**                   | Đúng 1 dòng như mục 5.1 / 5.2 |
+| `screenString()` | **Hiển thị** lên màn hình | Dạng bảng theo mục 6            |
 
 `Faculty` không có `screenString()` trong UML. Khi hiển thị, `FacultyList.listFacultys()` tự in bằng `printf` theo mẫu ở mục 6.
 
@@ -179,6 +183,7 @@ Mẫu thông báo:
 - Toàn bộ chữ hiển thị (menu, câu hỏi, thông báo) bằng **tiếng Anh, không dấu**. Menu trong đề là tiếng Anh, và tiếng Việt có dấu dễ bị lỗi font trên CMD Windows.
 - Câu hỏi nhập: `Enter <field>: `, ví dụ `Enter faculty ID: `
 - Thông báo dùng **đúng 4 tiền tố**:
+
   ```
   [OK]    Faculty F04 added.
   [ERROR] Faculty ID must not be empty. Please try again.
@@ -186,17 +191,21 @@ Mẫu thông báo:
   [WARN]  File facultys.txt not found. Starting with empty list.
   ```
 - Bảng Faculty:
+
   ```java
   "%-6s | %-25s | %-8s | %,18.0f"
   ```
+
   ```
   ID     | Name                      | Office   |    Research budget
   F01    | Computer Science          | A301     |        600,000,000
   ```
 - Bảng Lecturer (`screenString()`):
+
   ```java
   "%-6s | %-25s | %-22s | %-20s | %5d"
   ```
+
   ```
   ID     | Faculty                   | Full name              | Academic rank        | Hours
   L01    | Computer Science          | Nguyen An              | Senior Lecturer      |   180
@@ -207,15 +216,15 @@ Mẫu thông báo:
 
 ## 7. Ràng buộc dữ liệu (kiểm tra cả khi nhập lẫn khi đọc file)
 
-| Trường | Ràng buộc |
-|---|---|
-| `facultyID` | Không rỗng, không trùng, không chứa `,`. Lưu chữ in hoa. |
-| `facultyName`, `office` | Không rỗng, không chứa `,` |
-| `researchBudget` | Số thực **> 0** |
-| `lecturerID` | Không rỗng, không trùng, không chứa `,`. Lưu chữ in hoa. |
-| `faculty` | Phải tồn tại trong `FacultyList`. **Chọn qua menu**, không gõ tay. |
-| `fullName`, `academicRank` | Không rỗng, không chứa `,` |
-| `teachingHours` | Số nguyên **≥ 0** |
+| Trường                       | Ràng buộc                                                                      |
+| ------------------------------ | -------------------------------------------------------------------------------- |
+| `facultyID`                  | Không rỗng, không trùng, không chứa `,`. Lưu chữ in hoa.               |
+| `facultyName`, `office`    | Không rỗng, không chứa `,`                                                 |
+| `researchBudget`             | Số thực **> 0**                                                          |
+| `lecturerID`                 | Không rỗng, không trùng, không chứa `,`. Lưu chữ in hoa.               |
+| `faculty`                    | Phải tồn tại trong `FacultyList`. **Chọn qua menu**, không gõ tay. |
+| `fullName`, `academicRank` | Không rỗng, không chứa `,`                                                 |
+| `teachingHours`              | Số nguyên **≥ 0**                                                       |
 
 - Khi **sửa**: nếu đổi mã thì kiểm tra trùng với **các bản ghi khác** (không tính chính nó).
 - Khi sửa, nhấn Enter bỏ trống nghĩa là **giữ giá trị cũ**. In giá trị cũ trong ngoặc: `Enter office [A301]: `
@@ -250,15 +259,15 @@ Mẫu thông báo:
 
 ## 9. Phân chia file (ai sửa file nào)
 
-| File | Người sở hữu | Ghi chú |
-|---|---|---|
-| `LecturerManager.java` | TV1 | |
-| `Faculty.java`, `FacultyList.java`, `facultys.txt` | TV2 | |
-| `Lecturer.java`, `lecturers.txt` | TV3 | |
-| `LecturerList.java` | TV3 + TV4 | TV3 viết: constructor, `loadFromFile`, `saveToFile`, `searchID`, `listLecturers`, `printBasedFacultyName`.<br>TV4 viết: `addLecturer`, `removeLecturer`, `updateLecturer`.<br>**Mỗi người chỉ sửa method của mình.** TV3 commit khung trước 12h 10/11. |
-| `Inputter.java` | TV4 | Xong 09/11, cả nhóm dùng |
-| `Menu.java` | TV5 | Xong trước 12h 10/11 |
-| `AdvancedFeatures.java` | TV6 | Chức năng nâng cao 12, 13 (mở rộng mục 9 của đề). Viết trong file riêng; TV1 thêm 2 mục menu trong `LecturerManager`. |
+| File                                                     | Người sở hữu | Ghi chú                                                                                                                                                                                                                                                                        |
+| -------------------------------------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `LecturerManager.java`                                 | TV1              |                                                                                                                                                                                                                                                                                 |
+| `Faculty.java`, `FacultyList.java`, `facultys.txt` | TV2              |                                                                                                                                                                                                                                                                                 |
+| `Lecturer.java`, `lecturers.txt`                     | TV3              |                                                                                                                                                                                                                                                                                 |
+| `LecturerList.java`                                    | TV3 + TV4        | TV3 viết: constructor, `loadFromFile`, `saveToFile`, `searchID`, `listLecturers`, `printBasedFacultyName`.TV4 viết: `addLecturer`, `removeLecturer`, `updateLecturer`.**Mỗi người chỉ sửa method của mình.** TV3 commit khung trước 12h 10/11. |
+| `Inputter.java`                                        | TV4              | Xong 09/11, cả nhóm dùng                                                                                                                                                                                                                                                     |
+| `Menu.java`                                            | TV5              | Xong trước 12h 10/11                                                                                                                                                                                                                                                          |
+| `AdvancedFeatures.java`                                | TV6              | Chức năng nâng cao 12, 13, 14 (mở rộng mục 9 của đề). Viết trong file riêng; TV1 thêm 3 mục menu trong `LecturerManager`.                                                                                                                                        |
 
 Cần sửa file của người khác → nhắn chủ file sửa, hoặc ghi rõ trong Pull Request và tag chủ file vào review.
 

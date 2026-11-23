@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * Nhập chữ hoặc số ngoài khoảng: báo [ERROR] và hỏi lại, không làm dừng chương trình
  * (dùng {@code Inputter.inputInt}).
  *
- * @author TV5 - (điền họ tên)
+ * @author TV5 - Lam Duc Quy
  */
 public class Menu {
 

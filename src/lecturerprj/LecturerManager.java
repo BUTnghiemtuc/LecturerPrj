@@ -11,7 +11,7 @@ import lecturerprj.ui.Menu;
 
 /**
  * Điểm bắt đầu chương trình: nạp dữ liệu, hiển thị menu chính, gọi chức năng tương ứng.
- * Chức năng 1-11 và 0 theo đề; 12, 13 là chức năng nâng cao (lớp {@link AdvancedFeatures}).
+ * Chức năng 1-11 và 0 theo đề; 12, 13, 14 là chức năng nâng cao (lớp {@link AdvancedFeatures}).
  *
  * @author TV1 - Nguyen Trong Khoi
  */
@@ -35,7 +35,7 @@ public class LecturerManager {
      * <ol>
      *   <li>Nạp facultys.txt TRƯỚC, rồi mới nạp lecturers.txt (để đổi mã khoa thành đối tượng Faculty).
      *       Thiếu file hoặc có dòng sai chỉ in cảnh báo, chương trình vẫn chạy tiếp.</li>
-     *   <li>Tạo danh sách 13 mục menu và đối tượng chức năng nâng cao.</li>
+     *   <li>Tạo danh sách 14 mục menu và đối tượng chức năng nâng cao.</li>
      *   <li>Chạy vòng lặp menu ({@link #runMenu}) đến khi người dùng chọn 0.</li>
      *   <li>Nếu luồng nhập bị đóng giữa chừng (Ctrl+D / Ctrl+Z) thì dừng gọn, không ghi file.</li>
      * </ol>
@@ -63,9 +63,10 @@ public class LecturerManager {
                 "Update Lecturer by ID",
                 "Save Lecturers to " + LECTURER_FILE,
                 "Statistics by Faculty (advanced)",
-                "Remove Faculty by ID (advanced)"));
+                "Remove Faculty by ID (advanced)",
+                "Search Lecturers by partial name (advanced)"));
 
-        // Chức năng nâng cao 12, 13 (TV6) – mở rộng theo mục 9 của đề
+        // Chức năng nâng cao 12, 13, 14 (TV6) – mở rộng theo mục 9 của đề
         AdvancedFeatures advancedFeatures = new AdvancedFeatures(facultyList, lecturerList);
 
         try {
@@ -82,10 +83,10 @@ public class LecturerManager {
      * gọi chức năng tương ứng với số được chọn, lặp đến khi chọn 0.
      * Chọn 0 chỉ in lời chào, KHÔNG tự ghi file (đề yêu cầu); dữ liệu chưa lưu sẽ mất.
      *
-     * @param options          các mục menu 1..13
+     * @param options          các mục menu 1..14
      * @param facultyList      danh sách khoa
      * @param lecturerList     danh sách giảng viên
-     * @param advancedFeatures chức năng nâng cao 12, 13
+     * @param advancedFeatures chức năng nâng cao 12, 13, 14
      */
     private static void runMenu(ArrayList<String> options, FacultyList facultyList, LecturerList lecturerList,
             AdvancedFeatures advancedFeatures) {
@@ -93,7 +94,7 @@ public class LecturerManager {
         do {
             System.out.println();
             System.out.println("========== UNIVERSITY LECTURER MANAGEMENT ==========");
-            choice = Menu.int_getChoice(options);   // in 1..13 và "0. Exit"
+            choice = Menu.int_getChoice(options);   // in 1..14 và "0. Exit"
             switch (choice) {
                 case 1:
                     facultyList.listFacultys();
@@ -133,6 +134,9 @@ public class LecturerManager {
                     break;
                 case 13:
                     advancedFeatures.removeFaculty();
+                    break;
+                case 14:
+                    advancedFeatures.searchByName();
                     break;
                 case 0:
                     // Đề yêu cầu: thoát KHÔNG tự động ghi file

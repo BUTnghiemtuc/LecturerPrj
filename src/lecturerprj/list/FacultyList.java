@@ -21,7 +21,7 @@ import lecturerprj.ui.Menu;
  * Kế thừa {@code ArrayList<Faculty>} nên dùng trực tiếp được add/get/remove/size/for-each và
  * truyền thẳng vào {@code Menu.ref_getChoice} để chọn khoa.
  *
- * @author TV2 - (điền họ tên)
+ * @author TV2 - Pham Van Quyet
  */
 public class FacultyList extends ArrayList<Faculty> {
 

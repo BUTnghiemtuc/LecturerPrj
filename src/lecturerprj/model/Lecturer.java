@@ -11,7 +11,7 @@ package lecturerprj.model;
  * <p>Hiện thực {@link Comparable} để {@code Collections.sort} sắp xếp theo tên khoa rồi mã giảng viên
  * (chức năng 6). Việc kiểm tra ràng buộc dữ liệu do {@code LecturerList} và {@code Inputter} đảm nhận.
  *
- * @author TV3 - (điền họ tên)
+ * @author TV3 - Ta To Chi Cuong
  */
 public class Lecturer implements Comparable<Lecturer> {
 

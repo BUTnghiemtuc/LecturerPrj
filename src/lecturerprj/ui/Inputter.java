@@ -18,7 +18,7 @@ import java.util.Scanner;
  * <p>QUY TẮC: cả chương trình chỉ dùng DUY NHẤT Scanner {@link #SC} này.
  * Không tạo Scanner mới, không close(). Luôn đọc bằng nextLine() rồi tự chuyển kiểu.
  *
- * @author TV4 - (điền họ tên)
+ * @author TV4 - Nguyen Huu Tu
  */
 public class Inputter {
 

@@ -1,19 +1,23 @@
 package lecturerprj.list;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 import lecturerprj.model.Faculty;
 import lecturerprj.model.Lecturer;
 import lecturerprj.ui.Inputter;
 
 /**
- * Chức năng nâng cao (mở rộng theo mục 9 của đề), menu 12 và 13:
+ * Chức năng nâng cao (mở rộng theo mục 9 của đề), menu 12, 13 và 14:
  * <ul>
  *   <li>12. Thống kê theo khoa: số giảng viên, tổng và trung bình giờ giảng.</li>
  *   <li>13. Xóa khoa theo mã: chỉ cho xóa khi khoa không còn giảng viên.</li>
+ *   <li>14. Tìm giảng viên theo một phần họ tên (chức năng 7 của đề chỉ tìm theo tên khoa).</li>
  * </ul>
  * Viết trong file riêng để không phải sửa file của thành viên khác; làm việc trực tiếp trên
  * 2 danh sách mà LecturerManager đang dùng (không sao chép dữ liệu).
  *
- * @author TV6 - (điền họ tên)
+ * @author TV6 - Phung Nguyen Huy Hoang
  */
 public class AdvancedFeatures {
 
@@ -120,6 +124,45 @@ public class AdvancedFeatures {
         facultyList.remove(index);
         System.out.println("[OK]    Faculty " + id + " removed. Use option 5 to save the change.");
         return true;
+    }
+
+    /**
+     * Chức năng 14: tìm giảng viên theo một phần họ tên.
+     * <ol>
+     *   <li>Danh sách giảng viên rỗng: báo [INFO].</li>
+     *   <li>Nhập từ khóa (không rỗng), ví dụ "nguyen" hoặc "an".</li>
+     *   <li>Chọn các giảng viên có họ tên CHỨA từ khóa, không phân biệt hoa/thường
+     *       (đưa cả hai về chữ thường rồi dùng {@code contains}).</li>
+     *   <li>Sắp xếp bản sao kết quả (không đổi thứ tự danh sách gốc), in dạng bảng và số kết quả.</li>
+     * </ol>
+     * Không có kết quả thì in {@code [INFO] No lecturer name contains "<từ khóa>".}
+     * Chỉ đọc dữ liệu, không thay đổi gì.
+     */
+    public void searchByName() {
+        if (lecturerList.isEmpty()) {
+            System.out.println("[INFO]  List is empty.");
+            return;
+        }
+        String keyword = Inputter.inputString("Enter part of lecturer name: ");
+        String lowerKeyword = keyword.toLowerCase();
+
+        ArrayList<Lecturer> result = new ArrayList<Lecturer>();
+        for (Lecturer lecturer : lecturerList) {
+            if (lecturer.getFullName().toLowerCase().contains(lowerKeyword)) {
+                result.add(lecturer);
+            }
+        }
+        if (result.isEmpty()) {
+            System.out.println("[INFO]  No lecturer name contains \"" + keyword + "\".");
+            return;
+        }
+        // Sắp xếp bản sao (tên khoa rồi mã giảng viên) để dễ đọc mà không đổi thứ tự danh sách gốc
+        Collections.sort(result);
+        LecturerList.printHeader();
+        for (Lecturer lecturer : result) {
+            System.out.println(lecturer.screenString());
+        }
+        System.out.println("Found " + result.size() + " lecturer(s) whose name contains \"" + keyword + "\".");
     }
 
     /**

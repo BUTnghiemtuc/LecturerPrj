@@ -30,7 +30,7 @@ import lecturerprj.ui.Inputter;
  *   <li>TV4: addLecturer, removeLecturer, updateLecturer</li>
  * </ul>
  *
- * @author TV3 - (điền họ tên), TV4 - (điền họ tên)
+ * @author TV3 - Ta To Chi Cuong, TV4 - Nguyen Huu Tu
  */
 public class LecturerList extends ArrayList<Lecturer> {
 
@@ -365,8 +365,9 @@ public class LecturerList extends ArrayList<Lecturer> {
     /**
      * In dòng tiêu đề bảng giảng viên ("ID | Faculty | Full name | Academic rank | Hours")
      * kèm đường kẻ bên dưới; cùng độ rộng cột với {@code Lecturer.screenString()}.
+     * Để public để chức năng nâng cao 14 ({@code AdvancedFeatures.searchByName}) in cùng mẫu bảng.
      */
-    private static void printHeader() {
+    public static void printHeader() {
         System.out.println(String.format(Lecturer.HEADER_FORMAT, "ID", "Faculty", "Full name", "Academic rank",
                 "Hours"));
         System.out.println(TABLE_LINE);

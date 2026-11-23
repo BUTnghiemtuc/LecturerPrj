@@ -45,6 +45,6 @@ Chạy bằng IDE: mở thư mục `LecturerPrj`, đánh dấu `src` là thư m�
 | `model/Lecturer.java`, `list/LecturerList.java` (phần TV3) | TV3                 | 6, 7, 11           |
 | `list/LecturerList.java` (phần TV4), `ui/Inputter.java`    | TV4                 | 8, 9, 10           |
 | `ui/Menu.java`                                                | TV5                 | menu chọn         |
-| `list/AdvancedFeatures.java`                                  | TV6                 | 12, 13 (nâng cao) |
+| `list/AdvancedFeatures.java`                                  | TV6                 | 12, 13, 14 (nâng cao) |
 
 Tìm việc của mình: tìm chuỗi `TODO(TV2)` (thay bằng mã của bạn) trong IDE.
