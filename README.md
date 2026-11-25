@@ -10,10 +10,10 @@ Bài tập lớn Lập trình hướng đối tượng (Java Console) – Nhóm 
 | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | [de_bai/DE_BAI_Topic04.md](de_bai/DE_BAI_Topic04.md)           | Đề bài Topic 04 dạng Markdown, đọc nhanh trên GitHub/IDE                                                                  |
 | `de_bai/Topic04_University_Lecturer_Management_System.docx` | Đề bài gốc (chuẩn khi có khác biệt)                                                                                      |
-| `de_bai/cac_topic_khac/`                                    | 11 topic còn lại của môn (tham khảo)                                                                                        |
-| `mau_nop_bai/`                                              | Mẫu nộp bài của giảng viên: `1.Document` (báo cáo, kế hoạch), `3.Present` (slide), `4.Orthers` (biên bản họp) |
-| `docs/`                                                     | Báo cáo `Nhom_1_Bao_cao.docx`, biên bản họp, ảnh UML                                                                     |
+| `docs/`                                                     | Báo cáo `Nhom_1_Bao_cao.docx`, biên bản họp lần 1–3, tài liệu kiểm thử `Nhom_1_Kiem_thu.xlsx`, slide `Nhom_1_Slides.pptx`, ảnh UML |
+| `docs/anh_kiem_thu/`                                        | Ảnh chụp màn hình kết quả chạy từng chức năng (dùng trong báo cáo mục 8.2 và slide)                                       |
 | `Picture/`                                                  | Ảnh minh chứng các buổi họp                                                                                                 |
+| `LTHDT_Nhom_1/`                                             | Bài nộp theo cấu trúc mẫu nộp bài của giảng viên (1.Document, 2.Code, 3.Present, 4.Orthers) – tạo lại bằng `bash dong_goi.sh`, không sửa trực tiếp |
 
 Không để file `.zip`/`.rar` trong dự án: giải nén vào thư mục tương ứng ở trên rồi mới commit.
 
